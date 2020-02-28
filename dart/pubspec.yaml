@@ -1,0 +1,4 @@
+name: script_tools
+
+dev_dependencies:
+  test: ^1.12.0
