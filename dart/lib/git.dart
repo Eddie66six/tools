@@ -2,6 +2,9 @@ import 'dart:io';
 
 void removeLocalBranches() async{
   var gitPath = "C:\\Users\\guilherme\\Desktop\\git\\w12\\Evo3";
+  if(gitPath.indexOf(" ") > -1){
+    gitPath = "\"$gitPath\"";
+  }
   var forceDelete = true;
   List<String> localBranches = await _getLocalBranches(gitPath);
   List<String>  remoteBranches = await _getRemoteBranches(gitPath);
