@@ -2,8 +2,8 @@ import 'dart:io';
 
 var runInShell = false;
 
-void removeLocalBranches() async{
-  var gitPath = "C:\\Users\\Guilherme Eddie\\Desktop\\pasta com espaco\\EvoVendasOnline";
+removeLocalBranches() async{
+  var gitPath = "C:\\Users\\Guilherme Eddie\\Desktop\\projects\\w12\\EvoStaffMobile";
 
   var forceDelete = true;
   List<String> localBranches = await _getLocalBranches(gitPath);

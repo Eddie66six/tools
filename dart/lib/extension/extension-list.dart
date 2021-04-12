@@ -1,5 +1,5 @@
 extension ExtensionList on List {
-  List mapTypeGroupBy(field) {
+  List? mapTypeGroupBy(field) {
     if(this.runtimeType.toString().indexOf("JSArray<Map") == -1)
       return null;
     
