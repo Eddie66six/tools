@@ -25,7 +25,7 @@ removeLocalBranches() async{
 
 _getRemoteBranches(String gitPath) async{
   var remoteBranches = [];
-  await Process.run("git --git-dir ${_spacePath(gitPath, extra: '\\.git')} --work-tree ${_spacePath(gitPath)} branch -r", [], runInShell: runInShell).then((result) {
+  await Process.run("git --git-dir=${_spacePath(gitPath, extra: '\\.git')} --work-tree=${_spacePath(gitPath)} branch -r", [], runInShell: runInShell).then((result) {
     remoteBranches = result.stdout.toString().split('\n');
   });
   return remoteBranches;
@@ -33,38 +33,38 @@ _getRemoteBranches(String gitPath) async{
 
 _getLocalBranches(String gitPath) async{
   var localBranches = [];
-  await Process.run("git --git-dir ${_spacePath(gitPath, extra: '\\.git')} --work-tree ${_spacePath(gitPath)} branch", [], runInShell: runInShell).then((result) {
+  await Process.run("git --git-dir=${_spacePath(gitPath, extra: '\\.git')} --work-tree=${_spacePath(gitPath)} branch", [], runInShell: runInShell).then((result) {
     localBranches = result.stdout.toString().split('\n');
   });
   return localBranches;
 }
 
 _checkoutBranch(String gitPath, String branch) async {
-  await Process.run("git --git-dir ${_spacePath(gitPath, extra: '\\.git')} --work-tree ${_spacePath(gitPath)} checkout $branch", [], runInShell: runInShell).then((result) {
+  await Process.run("git --git-dir=${_spacePath(gitPath, extra: '\\.git')} --work-tree=${_spacePath(gitPath)} checkout $branch", [], runInShell: runInShell).then((result) {
     print(result.stderr);
   });
 }
 
 _pruneBranch(String gitPath) async{
-  await Process.run("git --git-dir ${_spacePath(gitPath, extra: '\\.git')} --work-tree ${_spacePath(gitPath)} remote update --prune", [], runInShell: runInShell).then((result) {
+  await Process.run("git --git-dir=${_spacePath(gitPath, extra: '\\.git')} --work-tree=${_spacePath(gitPath)} remote update --prune", [], runInShell: runInShell).then((result) {
     print(result.stderr);
   });
 }
 
 _deleteBranch(String gitPath, String branch, {bool force = false}) async{
-  await Process.run("git --git-dir ${_spacePath(gitPath, extra: '\\.git')} --work-tree ${_spacePath(gitPath)} branch ${force ? '-D' : '-d'} $branch", [], runInShell: runInShell).then((result) {
+  await Process.run("git --git-dir=${_spacePath(gitPath, extra: '\\.git')} --work-tree=${_spacePath(gitPath)} branch ${force ? '-D' : '-d'} $branch", [], runInShell: runInShell).then((result) {
     print(result.stderr);
   });
 }
 
 _pullBranch(String gitPath) async{
-  await Process.run("git --git-dir ${_spacePath(gitPath, extra: '\\.git')} --work-tree ${_spacePath(gitPath)} pull", [], runInShell: runInShell).then((result) {
+  await Process.run("git --git-dir=${_spacePath(gitPath, extra: '\\.git')} --work-tree=${_spacePath(gitPath)} pull", [], runInShell: runInShell).then((result) {
     print(result.stdout);
   });
 }
 
 _statusBranch(String gitPath) async{
-  await Process.run("git --git-dir ${_spacePath(gitPath, extra: '\\.git')} --work-tree ${_spacePath(gitPath)} status", [], runInShell: runInShell).then((result) {
+  await Process.run("git --git-dir=${_spacePath(gitPath, extra: '\\.git')} --work-tree=${_spacePath(gitPath)} status", [], runInShell: runInShell).then((result) {
     print(result.stdout);
   });
 }
